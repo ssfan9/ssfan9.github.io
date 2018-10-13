@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Triangle</title>
+	<script>
+    	function Herons_formula(a,b,c){
+        S = (a + b + c)/2;
+        A = Math.sqrt(S*(S-a)*(S-b)*(S-c));
+        return A;
+        }
+			function perimeter(){
+				var a = parseInt(prompt("Enter a"));
+        var b = parseInt(prompt("Enter b"));
+        var c = parseInt(prompt("Enter c"));
+				var p = a + b + c;
+				if(a + b > c & b + c > a & a + c > b) {
+        document.getElementById("demo").innerHTML = ("The perimeter of the triangle is " + p)
+        } else {
+        alert ("This triangle doesn't exist!")
+				};
+			}
+      function area(){
+				var a = parseInt(prompt("Enter a"));
+        var b = parseInt(prompt("Enter b"));
+        var c = parseInt(prompt("Enter c"));
+        var z = Herons_formula(a,b,c);
+        if(a + b > c & b + c > a & a + c > b){
+        document.getElementById("demo2").innerHTML = ("The area of the triangle is " + z)
+        } else {
+        alert ("This triangle doesn't exist!")
+        };
+        }
+			function reset(){
+					var a; var b; var c; var z;
+					document.getElementById("demo").innerHTML = "";
+					document.getElementById("demo2").innerHTML = "";
+				}
+    </script>
+</head>
+
+<body>
+
+<h2>Perimeter and Area of triangle</h2>
+
+<p>Let a, b, c be the three sides of a triangle respectively.</p>
+<img height=100 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Triangle_with_notations_2.svg/1200px-Triangle_with_notations_2.svg.png"></img>
+<br><br>
+<button onclick="perimeter()">Calculate the perimeter of the triangle</button>
+<p id="demo"></p>
+<p>Using Heron's formula, you can calculate the area of the triangle given the lengths of the threes sides.</p>
+
+<button onclick="area()">Calculate the area of the triangle</button>
+
+<p id="demo2"></p>
+
+<button onclick="reset()">Reset</button>
+
+</body>
+</html>
